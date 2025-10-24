@@ -9,15 +9,43 @@
 - Prepare SQLAlchemy for MySQL and migrations (no models yet in this step).
 - Keep everything simple and explicit.
 
-## Tech Stack (current)
+## 🧰 Tech Stack
 
-- Python 3.10+
-- Flask (app + routing)
-- Jinja2 (templates)
-- SQLAlchemy + PyMySQL (ORM + MySQL driver)
-- Flask-Migrate (Alembic migrations)
-- Flask-WTF / WTForms (forms + validation; installed now, used later)
-- python-dotenv (environment variables)
+### Core
+
+| Package    | Install name           | What it’s for                                              | Why we use it                                               |
+| ---------- | ---------------------- | ---------------------------------------------------------- | ----------------------------------------------------------- |
+| **Flask**  | `Flask`                | Micro web framework (routing, request/response, templates) | Lightweight and explicit—perfect for learning and CRUD apps |
+| **Jinja2** | *(bundled with Flask)* | HTML templating (blocks, inheritance, loops, filters)      | Clean, powerful templating out of the box                   |
+
+### Database & ORM
+
+| Package              | Install name                   | What it’s for                    | Why we use it                                             |
+| -------------------- | ------------------------------ | -------------------------------- | --------------------------------------------------------- |
+| **Flask-SQLAlchemy** | `Flask-SQLAlchemy`             | SQLAlchemy integration for Flask | Nice defaults, simpler app config                         |
+| **SQLAlchemy**       | *(pulled by Flask-SQLAlchemy)* | ORM & DB toolkit                 | The standard for Python ORMs                              |
+| **PyMySQL**          | `PyMySQL`                      | MySQL/MariaDB driver             | Pure-Python driver; easy to set up on Windows/macOS/Linux |
+
+### Migrations
+
+| Package           | Install name                | What it’s for                    | Why we use it                                |
+| ----------------- | --------------------------- | -------------------------------- | -------------------------------------------- |
+| **Flask-Migrate** | `Flask-Migrate`             | Alembic migrations via Flask CLI | Version your schema, evolve safely over time |
+| **Alembic**       | *(pulled by Flask-Migrate)* | DB migration engine              | Rock-solid migration layer for SQLAlchemy    |
+
+### Forms & Validation
+
+| Package             | Install name      | What it’s for                         | Why we use it                                        |
+| ------------------- | ----------------- | ------------------------------------- | ---------------------------------------------------- |
+| **Flask-WTF**       | `Flask-WTF`       | WTForms integration + CSRF protection | Secure forms with simple `validate_on_submit()` flow |
+| **WTForms**         | `WTForms`         | Declarative form fields & validators  | Clean form definitions and reusable validators       |
+| **email-validator** | `email-validator` | Email field validation                | Required by WTForms’ `Email()` validator             |
+
+### Configuration
+
+| Package           | Install name    | What it’s for                   | Why we use it                               |
+| ----------------- | --------------- | ------------------------------- | ------------------------------------------- |
+| **python-dotenv** | `python-dotenv` | Load secrets/config from `.env` | Keep credentials out of code and out of Git |
 
 ## Project Structure (initial)
 
@@ -42,7 +70,7 @@
 
 ## Requirements
 
-### Create requirements.txt:
+### Create requirements.txt
 
 - flask
 - python-dotenv
@@ -53,7 +81,7 @@
 - pymysql
 - flask-migrate
 
-## Optional quick install:
+## Optional quick install
 
     ```bash
     python -m venv .venv
