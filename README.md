@@ -49,7 +49,6 @@
 
 ## Project Structure (initial)
 
-    ```
     your-repo/
     ├─ README.md
     ├─ requirements.txt
@@ -66,20 +65,6 @@
     │     └─ static/         # css/js/img (later)
     └─ scripts/
     └─ (optional)         # seed or helpers (later)
-    ```
-
-## Requirements
-
-### Create requirements.txt
-
-- flask
-- python-dotenv
-- flask-wtf
-- wtforms
-- email-validator
-- flask-sqlalchemy
-- pymysql
-- flask-migrate
 
 ## Optional quick install
 

@@ -1,1 +1,12 @@
-
+# .gitignore to avoid committing venv, caches, and secrets
+@"
+.env
+.env.*
+.venv/
+env/
+__pycache__/
+*.pyc
+instance/
+.mypy_cache/
+.pytest_cache/
+"@ | Out-File -Encoding UTF8 .gitignore
