@@ -1,0 +1,19 @@
+How Flask projects usually flow (mental map)
+
+1. App factory & extensions → create the Flask app and plug in tools (DB, CSRF, etc.).
+
+2. Blueprints (routes/views) → group related routes (e.g., core, recipes, ingredients).
+
+3. Templates → Jinja HTML files for each view (inherit from base.html).
+
+4. Models → Python classes that map to DB tables.
+
+5. Forms → WTForms classes and validation.
+
+6. CRUD → views + forms + templates wired to models.
+
+7. Migrations → track schema changes safely.
+
+You’ll repeat a tiny loop for each feature:
+
+Model → Register (import/blueprint) → View (route logic) → Template (HTML) → Test
