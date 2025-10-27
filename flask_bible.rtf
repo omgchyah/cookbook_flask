@@ -41,3 +41,26 @@ Explicarte cada línea: columnas, claves foráneas, relación secondary, por qu�
 flask db migrate -m "init models" → genera script.
 
 flask db upgrade → crea tablas en MySQL.
+
+Por qué este diseño “mínimo” funciona y es reproducible
+
+WTForms te resuelve CSRF sin pensar en tokens manuales.
+
+Blueprint separado = rutas de ingrediente aisladas y fáciles de leer.
+
+Templates súper simples, sin herencias raras ni helpers custom.
+
+Delete vía POST = patrón seguro (no borrar con GET).
+
+Sin relaciones complicadas aquí: solo tocamos Ingredient para que el flujo te quede claro.
+
+python -m flask --app src.cookbook_flask:create_app --debug run
+# desde la raíz del repo
+& .\env\Scripts\python.exe -m flask --app src.cookbook_flask:create_app run --debug --no-reload
+
+
+git add .
+git commit -m "feat(ingredients): minimal CRUD (list/create/edit/delete) with WTForms + CSRF"
+git push -u origin feat/ingredients-crud
+
+

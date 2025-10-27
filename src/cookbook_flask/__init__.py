@@ -2,6 +2,7 @@ from flask import Flask
 from .config import Config # loads env + settings
 from .extensions import csrf, db, migrate # extension objects (unbound)
 from .blueprints.core import core_bp  # your first routes
+from . import models
 
 """
 Factory (create_app): builds a fresh app on demand (clean for tests/CLI).
@@ -23,11 +24,11 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
     
-    # ↓ Ensure models are imported so Flask-Migrate/Alembic can detect metadata
-    from . import models 
-    
-    # Routes
+    # Blueprints Routes
     app.register_blueprint(core_bp) # mount routes at "/"
+    from .blueprints.ingredients import ingredients_bp # ← import local
+    app.register_blueprint(ingredients_bp, url_prefix="/ingredients") # ← registro
+    
     
     return app
 

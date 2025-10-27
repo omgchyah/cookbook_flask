@@ -13,12 +13,14 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')  }}">
     </head>
     <body>
-        <nav><a href="{{ url_for('core.home') }}"</nav>
+        <nav>
+            <a href="{{ url_for('core.home') }}">Home</a> |
+            <a href="{{ url_for('ingredients.list_ingredients') }}">Ingredients</a>
+        </nav>
         <main>
-        {% block content %}
-            
-        {% endblock content %}
-            </main>        
+            {% block content %}
+            {% endblock content %}
+        </main>        
         <script src="" async defer></script>
     </body>
 </html>

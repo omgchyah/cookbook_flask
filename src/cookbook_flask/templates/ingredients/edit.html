@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block title %}Edit Ingredient{% endblock %} {%
+block content %}
+<h1>Edit Ingredient</h1>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <label>{{ form.name.label }} {{ form.name(size=32) }}</label>
+    {% if form.name.errors %}
+    <div>{{ form.name.errors[0] }}</div>
+    {% endif %}
+    <div>{{ form.submit() }}</div>
+</form>
+<p><a href="{{ url_for('ingredients.list_ingredients') }}">Back</a></p>
+{% endblock %}
