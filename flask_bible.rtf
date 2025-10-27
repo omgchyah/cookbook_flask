@@ -17,3 +17,27 @@ How Flask projects usually flow (mental map)
 You’ll repeat a tiny loop for each feature:
 
 Model → Register (import/blueprint) → View (route logic) → Template (HTML) → Test
+
+5) Initialize migrations (structure only)
+
+From repo root, with venv active:
+
+python -m flask --app src.cookbook_flask:create_app db init
+
+Siguiente paso (anuncio): feat/models
+
+(No lo ejecutes si aún no haces el push del branch actual. Te adelanto lo que haremos para que lo visualices.)
+
+Crear src/cookbook_flask/models.py con:
+
+Ingredient(id, name)
+
+Recipe(id, title, description)
+
+Pivot RecipeIngredient(recipe_id, ingredient_id, quantity, unit) con PK compuesta (recipe_id, ingredient_id).
+
+Explicarte cada línea: columnas, claves foráneas, relación secondary, por qué lazy, por qué PK compuesta en la pivote.
+
+flask db migrate -m "init models" → genera script.
+
+flask db upgrade → crea tablas en MySQL.
